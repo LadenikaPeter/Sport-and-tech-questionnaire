@@ -98,7 +98,7 @@ export default function Module1() {
             )}
             {progress && (
               <div className="flex flex-col items-center justify-center">
-                <h1 className="font-medium text-[40px]">
+                <h1 className="font-medium text-[clamp(20px,4vw,40px)]">
                   Module 1: Etiquette Tips
                 </h1>
                 <div className="relative ">
@@ -133,15 +133,15 @@ export default function Module1() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-center gap-[17px]">
+                <div className="flex items-center justify-center gap-[17px] sm:flex-nowrap flex-wrap">
                   <button
-                    className="text-white bg-[#0056D2] w-max py-[15px] px-[56px] rounded-[16px]"
+                    className="text-white bg-[#0056D2] sm:w-max py-[15px] px-[56px] rounded-[16px] w-full "
                     onClick={() => naviagate("/")}
                   >
                     Exit
                   </button>
                   <button
-                    className="text-white bg-[#0056D2] w-max py-[15px] px-[56px] rounded-[16px]"
+                    className="text-white bg-[#0056D2] sm:w-max py-[15px] px-[56px] rounded-[16px] w-full"
                     onClick={() => naviagate("/menu")}
                   >
                     Main Menu

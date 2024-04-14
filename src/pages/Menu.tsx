@@ -59,8 +59,6 @@ export default function MenuPage() {
             </div>
           </div>
         </div>
-        <img src="/Checkmark.svg" />
-        <img src="/cancle.svg" />
       </section>
     </>
   );

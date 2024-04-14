@@ -18,7 +18,9 @@ export default function MenuTabs({
           {module}
         </div>
         <div className="flex justify-between flex-grow px-[30px]">
-          <p className="flex items-center font-medium text-[25px]">{title}</p>
+          <p className="flex items-center font-medium text-[clamp(15px,4vw,25px)]">
+            {title}
+          </p>
           <input
             className="border-[#0056D2]"
             type="radio"

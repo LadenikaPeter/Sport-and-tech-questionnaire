@@ -6,3 +6,10 @@ export function shuffleArray(array: any[]) {
   }
   return shuffledArray;
 }
+
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Optional: Scroll behavior
+  });
+};

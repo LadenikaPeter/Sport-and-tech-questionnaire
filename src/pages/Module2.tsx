@@ -201,7 +201,7 @@ export default function Module2() {
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)] h-[75vh] mt-[70px]">
+        <div className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)] sm:h-[80vh] mt-[55px] h-[85vh]">
           <div
             style={{
               width: `${!progress ? calculateProgress() : 100}%`,
@@ -235,9 +235,9 @@ export default function Module2() {
                       );
                     })}
                   </div>
-                  <div className="flex justify-between mt-14">
+                  <div className="flex justify-between mt-14 max-[426px]:flex-wrap max-[426px]:gap-[30px]">
                     <div
-                      className={`flex border  border-solid w-[16%] rounded-[10px]  ${
+                      className={`flex border  border-solid w-[150px] rounded-[10px] max-[426px]:w-full  ${
                         noPrevious
                           ? "cursor-not-allowed border-[#CCCCCC]"
                           : "border-[#0056D2] cursor-pointer"
@@ -271,7 +271,7 @@ export default function Module2() {
                     </div>
                     {/* space between buttons */}
                     <div
-                      className={`flex border  border-solid w-[16%] rounded-[10px]  ${
+                      className={`flex border  border-solid w-[150px] rounded-[10px] max-[426px]:w-full  ${
                         noNext
                           ? "cursor-not-allowed border-[#CCCCCC]"
                           : "border-[#0056D2] cursor-pointer"
@@ -309,7 +309,7 @@ export default function Module2() {
             )}
             {progress && (
               <div className="flex flex-col items-center justify-center">
-                <h1 className="font-medium text-[40px]">
+                <h1 className="font-medium text-[clamp(20px,4vw,40px)]">
                   Module 2: Multiple Choice
                 </h1>
                 <div className="relative ">
@@ -342,15 +342,15 @@ export default function Module2() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-center gap-[17px]">
+                <div className="flex items-center justify-center gap-[17px] sm:flex-nowrap flex-wrap">
                   <button
-                    className="text-white bg-[#0056D2] w-max py-[15px] px-[56px] rounded-[16px]"
+                    className="text-white bg-[#0056D2] sm:w-max py-[15px] px-[56px] rounded-[16px] w-full"
                     onClick={() => handleReset()}
                   >
                     Restart
                   </button>
                   <button
-                    className="text-white bg-[#0056D2] w-max py-[15px] px-[56px] rounded-[16px]"
+                    className="text-white bg-[#0056D2] sm:w-max py-[15px] px-[56px] rounded-[16px] w-full"
                     onClick={() => naviagate("/menu")}
                   >
                     Main Menu
