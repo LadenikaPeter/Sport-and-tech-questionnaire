@@ -17,24 +17,14 @@ export default function Module3() {
   useEffect(() => {
     let newArray = shuffleArray(ANSWERS);
     setAnswersArray(newArray);
-    // console.log(newArray);
   }, []);
 
   const handleQuestionClick = (index: number) => {
-    // console.log(index);
-    // console.log(TOPICS[index].color);
     setQuestionSelectedIndex(index);
     setColorSelected(TOPICS[index].color);
   };
 
   const handleAnswerClick = (index: number) => {
-    // console.log(index);
-    // console.log(answersArray);
-
-    // let updatedArray: answer[] = [...answersArray];
-    // let answer: answer = updatedArray[index];
-    // console.log(answer);
-
     if (colorSelected !== "") {
       const newArray = answersArray.map((item, i) => {
         if (i === index) {
@@ -46,26 +36,14 @@ export default function Module3() {
         }
       });
 
-      // answer["selectedColor"] = colorSelected;
-
       setAnswersArray(newArray);
       setColorSelected("");
-      // setQuestionSelectedIndex(-1);
-      // console.log(newArray);
-
-      // if (!answerCount.includes(answer.id)) {
-      //   let newAnswerCount = [...answerCount];
-      //   newAnswerCount.push(answer.id);
-      //   setAnswerCount(newAnswerCount);
-      //   console.log(newAnswerCount);
-      // }
     }
     setQuestionSelectedIndex(-1);
   };
 
   const processResult = () => {
     if (!allQuestionsAnswered) {
-      console.log("commot abeg");
       toast.error("Please match all the terms to its definition");
       return;
     }
@@ -82,9 +60,7 @@ export default function Module3() {
           return i.id === item.id;
         });
         wrongAnswerTermArray.push(topicItem);
-        // wrongAnswerTermArray.push(TOPICS.find((i)=> {
-        //   return i.id === item.id
-        // }));
+
         wrongAnswerArray.push(item);
       }
     });
@@ -94,9 +70,6 @@ export default function Module3() {
     setWrongAnswerTerms(wrongAnswerTermArray);
     setProgress(true);
     scrollToTop();
-    console.log(rightAnswerArray);
-    console.log(wrongAnswerArray);
-    console.log(wrongAnswerTermArray);
   };
 
   const tableHeading: string =

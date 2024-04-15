@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   MODULE_ONE_OPTIONS,
   MODULE_ONE_QUESTIONS,
@@ -13,10 +13,9 @@ export default function Module1() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedValue, setSelectedValue] = useState("");
   const questions = useMemo(
-    () => shuffleArray(MODULE_ONE_QUESTIONS).slice(0, 3),
+    () => shuffleArray(MODULE_ONE_QUESTIONS).slice(0, 7),
     []
   );
-  // const [questions, setQuestions] = useState<any>([]);
   const [disabled, setDisabled] = useState(false);
   const [progress, setProgress] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState<string[]>([]);
@@ -24,12 +23,6 @@ export default function Module1() {
   const currentQuestion: module_one_questions = questions[currentQuestionIndex];
 
   const naviagate = useNavigate();
-
-  useEffect(() => {
-    // const shuffledQuestion = shuffleArray(MODULE_ONE_QUESTIONS.splice(0, 7));
-    // setQuestions(shuffledQuestion);
-    // console.log(shuffledQuestion);
-  }, []);
 
   const calculateProgress = () => {
     return (currentQuestionIndex / questions.length) * 100;

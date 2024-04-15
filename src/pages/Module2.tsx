@@ -1,20 +1,18 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   MODULE_TWO_QUESTIONS,
   module_two_questions,
 } from "../constants/module2";
 import { shuffleArray } from "../util/util";
 import { useNavigate } from "react-router-dom";
-import OptionTabs from "../components/Option-tabs";
 import { SemiCircleProgress } from "react-semicircle-progressbar";
 import Module2tab from "../components/Module2-tabs";
 import Module2DisplayTabs from "../components/Module2-display-tabs";
 
 export default function Module2() {
-  // const [questions, setQuestions] = useState<any>([]);
   const [resetCount, setResetCount] = useState(0);
   const questions = useMemo(
-    () => shuffleArray(MODULE_TWO_QUESTIONS).slice(0, 3),
+    () => shuffleArray(MODULE_TWO_QUESTIONS).slice(0, 15),
     [resetCount]
   );
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -25,16 +23,11 @@ export default function Module2() {
   const [rightAnswer, setRightAnswer] = useState<module_two_questions[]>([]);
   const [noPrevious, setNoPrevious] = useState(true);
   const [noNext, setNoNext] = useState(true);
-  const [allQuestions, setAllQuestions] = useState<module_two_questions[]>([]);
   const [persistSelectedValue, setPersistSelectedValue] = useState<string[]>(
     []
   );
   const [goBackOnce, setGoBackOnce] = useState(false);
-  const [finalPercentage, setFinalPercentage] = useState(0);
   const [answerToWrongQuestion, setAnswerToWrongQuestion] = useState([]);
-  const [answerToRightQuestion, setAnswerToRightQuestion] = useState([]);
-  const [selectedValueForRightQuestion, setSelectedValueForRightQuestion] =
-    useState([]);
   const [selectedValueForWrongQuestion, setSelectedValueForWrongQuestion] =
     useState([]);
   const currentQuestion: module_two_questions = questions[currentQuestionIndex];
@@ -46,12 +39,6 @@ export default function Module2() {
   };
 
   const handleAnswerSelected = (e: any) => {
-    // const correctOptionObject = currentQuestion.option.find(
-    //   (option) => option.key === currentQuestion.correctAnswer
-    // );
-    // const correctOptionValue = correctOptionObject?.option;
-
-    console.log(currentQuestionIndex);
     setSelectedValue(e.target.value);
 
     const hasValueForIndex =
@@ -69,17 +56,6 @@ export default function Module2() {
     }
 
     setNoNext(false);
-    // setDisabled(true);
-
-    setAllQuestions((prevState) => {
-      return [...prevState, currentQuestion];
-    });
-
-    // if (correctOptionValue !== e.target.value) {
-    //   setWrongAnswer((prevState) => {
-    //     return [...prevState, currentQuestion];
-    //   });
-    // }
   };
 
   const processAnswers = () => {
@@ -112,23 +88,15 @@ export default function Module2() {
         selectedWrongAnswer.push(selectedOption);
       }
     });
-    console.log(questionsPassed);
-    console.log(questionsFailed);
-    console.log(answerToRightQuestion);
-    console.log(answerToWrongQuestion);
-    console.log(selectedRightAnswer);
-    console.log(selectedWrongAnswer);
+
     setRightAnswer(questionsPassed);
     setWrongAnswer(questionsFailed);
-    setAnswerToRightQuestion(answerToRightQuestion);
     setAnswerToWrongQuestion(answerToWrongQuestion);
-    setSelectedValueForRightQuestion(selectedRightAnswer);
     setSelectedValueForWrongQuestion(selectedWrongAnswer);
   };
 
   const handlePreviousClick = () => {
     if (goBackOnce) {
-      console.log("can only go back once");
       setCurrentQuestionIndex((prevState) => {
         return prevState - 1;
       });
@@ -141,7 +109,6 @@ export default function Module2() {
       setGoBackOnce(false);
       setNoPrevious(true);
       setNoNext(false);
-      // setDisabled(true);
     }
   };
 
@@ -153,7 +120,6 @@ export default function Module2() {
       });
       setNoNext(true);
       setSelectedValue("");
-      // setDisabled(false);
       setNoPrevious(false);
       setGoBackOnce(true);
     }
@@ -164,15 +130,10 @@ export default function Module2() {
     ) {
       setSelectedValue(persistSelectedValue[currentQuestionIndex + 1]);
       setNoNext(false);
-      // setDisabled(true);
     }
     if (currentQuestionIndex + 1 === questions.length && selectedValue !== "") {
-      // console.log(wrongAnswer[]);
       processAnswers();
       setProgress(true);
-      // setFinalPercentage(
-      //   ((questions?.length - wrongAnswer?.length) / questions.length) * 100
-      // );
     }
   };
 
@@ -189,15 +150,12 @@ export default function Module2() {
     setWrongAnswer([]);
     setNoPrevious(true);
     setNoNext(true);
-    setAllQuestions([]);
     setPersistSelectedValue([]);
     setGoBackOnce(false);
-    setFinalPercentage(0);
     setResetCount((prevCount) => prevCount + 1);
     setSelectedValue("");
   };
 
-  console.log(questions);
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -210,7 +168,7 @@ export default function Module2() {
               transition: "width 0.5s ease",
             }}
           ></div>
-          <div className="px-[55px] pt-[75px]">
+          <div className="sm:px-[55px] px-[20px] pt-[75px]">
             {!progress && (
               <div>
                 <div className="flex flex-col gap-[15px]">
@@ -235,7 +193,7 @@ export default function Module2() {
                       );
                     })}
                   </div>
-                  <div className="flex justify-between mt-14 max-[426px]:flex-wrap max-[426px]:gap-[30px]">
+                  <div className="flex justify-between mt-14 max-[426px]:gap-[30px]">
                     <div
                       className={`flex border  border-solid w-[150px] rounded-[10px] max-[426px]:w-full  ${
                         noPrevious
