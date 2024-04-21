@@ -42,6 +42,19 @@ export default function Module3() {
     setQuestionSelectedIndex(-1);
   };
 
+  const checkColorMatch = (selectedColor: string) => {
+    // Iterate over the ANSWERS array
+    for (const answer of answersArray) {
+      // Check if the selectedColor matches any color in the ANSWERS array
+      if (answer.selectedColor === selectedColor) {
+        // If a match is found, return true
+        return true;
+      }
+    }
+    // If no match is found, return false
+    return false;
+  };
+
   const processResult = () => {
     if (!allQuestionsAnswered) {
       toast.error("Please match all the terms to its definition");
@@ -104,16 +117,20 @@ export default function Module3() {
                             className={`flex items-center justify-between py-[13px] px-[16px] border cursor-pointer`}
                             style={{
                               borderColor: `${
-                                questionSelectedIndex === index
+                                questionSelectedIndex === index ||
+                                checkColorMatch(topic.color)
                                   ? `${topic.color}`
                                   : "#E2E3E3"
                               }`,
                               borderWidth: `${
-                                questionSelectedIndex === index ? "2px" : "1px"
+                                questionSelectedIndex === index ||
+                                checkColorMatch(topic.color)
+                                  ? "2px"
+                                  : "1px"
                               }`,
                             }}
                           >
-                            <p className="font-medium w-[78%]">{topic.topic}</p>
+                            <p className="font-medium w-[80%]">{topic.topic}</p>
                             <div
                               style={{ backgroundColor: `${topic.color}` }}
                               className={`w-[15px] h-[15px] rounded-[50%]`}

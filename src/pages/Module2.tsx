@@ -113,7 +113,6 @@ export default function Module2() {
   };
 
   const handleNextClick = () => {
-    console.log(persistSelectedValue);
     if (selectedValue !== "" && currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prevState) => {
         return prevState + 1;
@@ -139,7 +138,6 @@ export default function Module2() {
 
   let buttonText = "Next";
   if (currentQuestionIndex + 1 === questions.length) {
-    console.log("now");
     buttonText = "Finish";
   }
 

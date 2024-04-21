@@ -13,3 +13,10 @@ export const scrollToTop = () => {
     behavior: "smooth", // Optional: Scroll behavior
   });
 };
+
+export const handleTitleClick = (title: string) => {
+  const radioButton = document.getElementById(title) as HTMLInputElement;
+  if (radioButton) {
+    radioButton.click();
+  }
+};

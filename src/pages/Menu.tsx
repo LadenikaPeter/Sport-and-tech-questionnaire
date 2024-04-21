@@ -8,7 +8,6 @@ export default function MenuPage() {
   const navigate = useNavigate();
 
   const handleButtonClick = (e: any) => {
-    console.log(e.target.value);
     setSelectedValue(e.target.value);
   };
 

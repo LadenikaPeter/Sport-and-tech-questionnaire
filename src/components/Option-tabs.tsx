@@ -1,3 +1,5 @@
+import { handleTitleClick } from "../util/util";
+
 type optionTabProps = {
   option: string;
   selectedValue: string;
@@ -43,6 +45,7 @@ export default function OptionTabs({
           className={`text-white p-[2px]`}
         ></div>
         <div
+          onClick={() => handleTitleClick(option)}
           style={{
             backgroundColor:
               selectedValue === option
@@ -52,7 +55,7 @@ export default function OptionTabs({
                   : "rgba(226, 61, 104, 0.05)"
                 : "rgba(255, 255, 255, 1)",
           }}
-          className="flex justify-between flex-grow px-[15px] py-[10px] rounded-r-[10px]"
+          className="flex justify-between flex-grow px-[15px] py-[10px] rounded-r-[10px] cursor-pointer"
         >
           <div>
             {selectedValue === option &&

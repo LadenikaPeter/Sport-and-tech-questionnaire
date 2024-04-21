@@ -1,3 +1,5 @@
+import { handleTitleClick } from "../util/util";
+
 type optionTabProps = {
   option: string;
   selectedValue: string;
@@ -30,7 +32,10 @@ export default function Module2tab({
           }}
           className={`text-white p-[2px]`}
         ></div>
-        <div className="flex justify-between flex-grow px-[15px] py-[10px] rounded-r-[10px]">
+        <div
+          className="flex justify-between flex-grow px-[15px] py-[10px] rounded-r-[10px] cursor-pointer"
+          onClick={() => handleTitleClick(option)}
+        >
           <div>
             <p className="flex items-center font-medium text-[18px]">
               {option}

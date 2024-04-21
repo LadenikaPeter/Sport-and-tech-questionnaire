@@ -1,3 +1,5 @@
+import { handleTitleClick } from "../util/util";
+
 type menuTabProps = {
   module: string;
   title: string;
@@ -17,7 +19,10 @@ export default function MenuTabs({
         <div className="bg-[#0056D2] text-white p-[20px] rounded-l-[10px] rounded-tl-10">
           {module}
         </div>
-        <div className="flex justify-between flex-grow px-[30px]">
+        <div
+          className="flex justify-between flex-grow px-[30px] cursor-pointer"
+          onClick={() => handleTitleClick(title)}
+        >
           <p className="flex items-center font-medium text-[clamp(15px,4vw,25px)]">
             {title}
           </p>

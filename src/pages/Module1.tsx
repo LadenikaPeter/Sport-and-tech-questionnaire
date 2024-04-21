@@ -43,7 +43,6 @@ export default function Module1() {
         setSelectedValue("");
         setDisabled(false);
       } else {
-        console.log("Questionnaire completed!");
         setProgress(true);
       }
     }, 1500);
