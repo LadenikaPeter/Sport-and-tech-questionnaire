@@ -6,7 +6,7 @@ To run this project locally, follow these steps:
 
    ```bash
    git clone https://github.com/LadenikaPeter/Sport-and-tech-questionnaire.git
-   cd next-move-agency
+   cd Sport-and-tech-questionnaire
 
 3. **Install Dependencies**
 
