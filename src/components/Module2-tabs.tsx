@@ -31,7 +31,7 @@ export default function Module2tab({
           className={`text-white p-[2px]`}
         ></div>
         <div
-          className="flex justify-between flex-grow px-[15px] py-[10px] rounded-r-[10px] cursor-pointer"
+          className="flex justify-between items-center flex-grow px-[15px] py-[10px] rounded-r-[10px] cursor-pointer"
           onClick={() => handleTitleClick(option)}
         >
           <div>
