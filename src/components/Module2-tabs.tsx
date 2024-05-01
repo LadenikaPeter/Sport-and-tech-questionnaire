@@ -12,8 +12,6 @@ type optionTabProps = {
 export default function Module2tab({
   option,
   selectedValue,
-  correctAnswer,
-  KeyForOption,
   disabled,
   clickFunction,
 }: optionTabProps) {

@@ -11,8 +11,6 @@ export default function OptionTabs({
   option,
   selectedValue,
   correctAnswer,
-  KeyForOption,
-  disabled,
   clickFunction,
 }: optionTabProps) {
   return (
@@ -52,21 +50,6 @@ export default function OptionTabs({
           className="flex justify-between flex-grow px-[15px] py-[10px] rounded-r-[10px]"
         >
           <div>
-            {/* {selectedValue === option &&
-              (selectedValue ? (
-                selectedValue === correctAnswer ||
-                correctAnswer === KeyForOption ? (
-                  <p className="flex gap-[7px] mb-[4px]">
-                    <img src="/Checkmark.svg" className="w-[14px]" />
-                    <span className="font-medium text-[#2D7253]">Correct</span>
-                  </p>
-                ) : (
-                  <p className="flex gap-[7px] mb-[4px]">
-                    <img src="/cancle.svg" className="w-[14px]" />
-                    <span className="font-medium text-[#E23D68]">Wrong</span>
-                  </p>
-                )
-              ) : null)} */}
             {option === correctAnswer ? (
               <p className="flex gap-[7px] mb-[4px]">
                 <img src="/Checkmark.svg" className="w-[14px]" />
