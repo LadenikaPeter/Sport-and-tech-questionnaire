@@ -157,7 +157,7 @@ export default function Module2() {
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)] sm:h-[80vh] mt-[55px] h-[85vh]">
+        <div className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)] my-[55px]">
           <div
             style={{
               width: `${!progress ? calculateProgress() : 100}%`,
@@ -166,7 +166,7 @@ export default function Module2() {
               transition: "width 0.5s ease",
             }}
           ></div>
-          <div className="sm:px-[55px] px-[20px] pt-[75px]">
+          <div className="sm:px-[55px] px-[20px] sm:py-[75px] py-[40px]">
             {!progress && (
               <div>
                 <div className="flex flex-col gap-[15px]">
@@ -175,7 +175,7 @@ export default function Module2() {
                   </p>
                   <h1 className="font-medium">{currentQuestion?.question}</h1>
                 </div>
-                <div className="pt-[50px]">
+                <div className="pt-[50px] pb-[25px]">
                   <div className="flex flex-col gap-5">
                     {currentQuestion?.option.map((option, index) => {
                       return (
@@ -318,8 +318,8 @@ export default function Module2() {
         </div>
         {progress && wrongAnswer && wrongAnswer.length > 0 && (
           <div className="pb-[55px]">
-            <div className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)] mt-[30px] p-[55px]">
-              <div className="flex flex-col gap-[70px]">
+            <div className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)]">
+              <div className="flex flex-col gap-[70px] sm:px-[55px] px-[20px] sm:py-[75px] py-[40px]">
                 {wrongAnswer.map((question, index) => {
                   return (
                     <div key={index}>

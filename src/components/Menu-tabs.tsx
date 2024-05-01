@@ -15,12 +15,12 @@ export default function MenuTabs({
 }: menuTabProps) {
   return (
     <>
-      <div className="flex border border-[#dadada] border-solid w-[80%] rounded-[10px]">
+      <div className="flex border border-[#dadada] border-solid sm:w-[80%] w-[90%] rounded-[10px]">
         <div className="bg-[#0056D2] text-white p-[20px] rounded-l-[10px] rounded-tl-10">
           {module}
         </div>
         <div
-          className="flex justify-between flex-grow px-[30px] cursor-pointer"
+          className="flex justify-between flex-grow px-[30px] cursor-pointer items-center"
           onClick={() => handleTitleClick(title)}
         >
           <p className="flex items-center font-medium text-[clamp(15px,4vw,25px)]">
