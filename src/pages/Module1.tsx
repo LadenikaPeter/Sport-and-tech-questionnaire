@@ -52,8 +52,7 @@ export default function Module1() {
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-        style={{height: `${!progress ? '70vh' : '100vh'}`}}
-         className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)] sm:mt-[70px] mt-[50px]">
+         className="shadow-[1px_1px_7px_1px_rgba(218,218,218,1)] sm:mt-[70px] mt-[50px] h-[71vh]">
           <div
             style={{
               width: `${!progress ? calculateProgress() : 100}%`,

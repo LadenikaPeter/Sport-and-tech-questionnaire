@@ -47,7 +47,7 @@ export default function OptionTabs({
                 ? "rgba(226, 61, 104, 0.05)"
                 : "rgba(255, 255, 255, 1)",
           }}
-          className="flex justify-between flex-grow px-[15px] py-[10px] rounded-r-[10px]"
+          className="flex justify-between items-center flex-grow px-[15px] py-[10px] rounded-r-[10px]"
         >
           <div>
             {option === correctAnswer ? (
