@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   MODULE_TWO_QUESTIONS,
   module_two_questions,
 } from "../constants/module2";
-import { shuffleArray } from "../util/util";
+import { scrollToTop, shuffleArray } from "../util/util";
 import { useNavigate } from "react-router-dom";
 import { SemiCircleProgress } from "react-semicircle-progressbar";
 import Module2tab from "../components/Module2-tabs";
@@ -31,6 +31,10 @@ export default function Module2() {
   const [selectedValueForWrongQuestion, setSelectedValueForWrongQuestion] =
     useState([]);
   const currentQuestion: module_two_questions = questions[currentQuestionIndex];
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const naviagate = useNavigate();
 

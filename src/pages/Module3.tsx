@@ -17,6 +17,7 @@ export default function Module3() {
   useEffect(() => {
     let newArray = shuffleArray(ANSWERS);
     setAnswersArray(newArray);
+    scrollToTop();
   }, []);
 
   const handleQuestionClick = (index: number) => {

@@ -16,7 +16,12 @@ export default function MenuTabs({
   return (
     <>
       <div className="flex border border-[#dadada] border-solid sm:w-[80%] w-[90%] rounded-[10px]">
-        <div className="bg-[#0056D2] text-white p-[20px] rounded-l-[10px] rounded-tl-10">
+        <div
+          style={{
+            backgroundColor: `${title === "Training" ? "red" : "#0056D2"}`,
+          }}
+          className=" text-white p-[20px] rounded-l-[10px] rounded-tl-10"
+        >
           {module}
         </div>
         <div
