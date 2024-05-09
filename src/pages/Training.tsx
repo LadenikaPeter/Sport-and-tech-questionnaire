@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import MenuTabs from "../components/Menu-tabs";
 import { TRAINING } from "../constants/menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { scrollToTop } from "../util/util";
 
 export default function Training() {
   const [selectedValue, setSelectedValue] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const handleButtonClick = (e: any) => {
     setSelectedValue(e.target.value);
